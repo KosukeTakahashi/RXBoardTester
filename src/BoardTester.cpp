@@ -92,6 +92,13 @@ void main(void)
 #pragma interrupt(on_cmi0(vect=VECT(CMT0, CMI0)))
 void on_cmi0(void)
 {
+	float acc = Sensors::readUniversalAD0();
+
+	// U相とW相間に電位差をつくる
+	// 作るところを変えたいときは
+	//           ↓の部分をU,V,Wに変えてください
+	CPWM::setDutyU(acc);        // アクセル値が上がれば電位も上がる
+	CPWM::setDutyW(1.0F - acc); // アクセル値が上がれば電位は下がる
 }
 
 #pragma interrupt on_txm0(vect=VECT(CAN0, TXM0))
@@ -102,6 +109,7 @@ void on_txm0(void)
 #pragma interrupt on_rxm0(vect=VECT(CAN0, RXM0))
 void on_rxm0(void)
 {
+	/*
     CANWrapper::CANFrame incoming = CANWrapper::retrieveFrame(0);
 
     int throttle = (incoming.data[2] << 8) | (incoming.data[3]);
@@ -114,6 +122,7 @@ void on_rxm0(void)
     CANWrapper::markAsReceiver(0, 0x00000001, false);
 
     UART1_vtransmit("%d\n", throttle);
+    */
 }
 
 #ifdef __cplusplus
