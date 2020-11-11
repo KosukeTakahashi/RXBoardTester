@@ -1,0 +1,87 @@
+Renesas Optimizing Linker (W3.01.00 )             15-Oct-2020 21:38:25
+
+*** Options ***
+
+-subcommand=LinkerBoardTester.tmp
+-input=".\can\canwrapper.obj"
+-input=".\cpwm\cpwm.obj"
+-input=".\generate\dbsct.obj"
+-input=".\generate\hwsetup.obj"
+-input=".\generate\intprg.obj"
+-input=".\generate\resetprg.obj"
+-input=".\generate\sbrk.obj"
+-input=".\generate\vecttbl.obj"
+-input=".\sensors\sensors.obj"
+-input=".\src\BoardTester.obj"
+-input=".\src\uartprint.obj"
+-input=".\timer\timer.obj"
+-library=".\BoardTester.lib"
+-start=SU,SI,B_1,R_1,B_2,R_2,B,R/04,PResetPRG,C_1,C_2,C,C$*,D*,W*,L,PIntPRG,P/0FFFC0000,FIXEDVECT/0FFFFFF80
+-output="BoardTester.abs"
+-form=absolute
+-nomessage
+-list=BoardTester.map
+-nooptimize
+-rom=D=R,D_1=R_1,D_2=R_2
+-cpu=RAM=00000000-00003fff,FIX=00080000-00083fff,FIX=00086000-00087fff,FIX=00088000-0009401f,FIX=000c0000-000fffff,ROM=00100000-00107fff,FIX=007fc000-007fc4ff,FIX=007ffc00-007fffff,ROM=fffc0000-ffffffff
+-nologo
+
+*** Error information ***
+
+*** Mapping List ***
+
+SECTION                            START      END         SIZE   ALIGN
+SU
+                                  00000004  00000103       100   4
+SI
+                                  00000104  00000403       300   4
+B_1
+                                  00000404  00000443        40   1
+R_1
+                                  00000444  00000494        51   1
+B_2
+                                  00000495  00000495         0   1
+R_2
+                                  00000495  00000495         0   1
+B
+                                  00000498  0000089f       408   4
+R
+                                  000008a0  00000b1b       27c   4
+PResetPRG
+                                  fffc0000  fffc0037        38   4
+C_1
+                                  fffc0038  fffc0109        d2   4
+C_2
+                                  fffc010a  fffc030b       202   2
+C
+                                  fffc030c  fffc0373        68   4
+C$DSEC
+                                  fffc0374  fffc0397        24   4
+C$BSEC
+                                  fffc0398  fffc03af        18   4
+C$INIT
+                                  fffc03b0  fffc03b0         0   1
+C$VECT
+                                  fffc03b0  fffc07af       400   4
+C$VTBL
+                                  fffc07b0  fffc07b0         0   1
+D
+                                  fffc07b0  fffc0a2b       27c   4
+D_1
+                                  fffc0a2c  fffc0a7c        51   1
+D_2
+                                  fffc0a7d  fffc0a7d         0   1
+W
+                                  fffc0a7d  fffc0a7d         0   1
+W_1
+                                  fffc0a7d  fffc0a7d         0   1
+W_2
+                                  fffc0a7d  fffc0a7d         0   1
+L
+                                  fffc0a80  fffc0ac0        41   4
+PIntPRG
+                                  fffc0ac4  fffc0ba7        e4   4
+P
+                                  fffc0ba8  fffc2ef3      234c   1
+FIXEDVECT
+                                  ffffff80  ffffffff        80   4

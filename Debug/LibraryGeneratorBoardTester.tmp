@@ -1,0 +1,7 @@
+-isa=rxv1
+-fpu
+-endian=big
+-lang=c
+-head=runtime,stdio,stdlib,string,new
+-output="BoardTester.lib"
+-nologo
